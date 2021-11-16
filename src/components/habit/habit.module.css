@@ -1,0 +1,39 @@
+.habit {
+    display: flex;
+    align-items: center;
+    background-color: lightgray;
+    padding: 1rem;
+}
+.habitName {
+    font-size: 2em;
+    margin-right: 0.3rem;
+}
+.habitCount {
+    color: white;
+    font-size: 2em;
+    background-color: rosybrown;
+    border-radius: 50%;
+    padding: 0 0.6rem;
+    margin-right: 1rem;
+}
+
+button {
+    color: white;
+    font-size: 2em;
+    background-color: rgb(9, 121, 9);
+    border-radius: 10%;
+    border: 0;
+    margin: 0 0.5rem;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(182, 43, 43);
+    background: transparent;
+}
