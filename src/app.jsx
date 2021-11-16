@@ -1,11 +1,24 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './app.css';
-import Habit from './components/habit/habit';
+import Habits from './components/habits';
 
-class App extends Component {
-    render() {
-        return <Habit />;
-    }
-}
+const App = (props) => {
+    const [habits, setHabits] = useState({
+        1: {
+            text: 'Reading',
+            count: 0,
+        },
+        2: {
+            text: 'Running',
+            count: 0,
+        },
+        3: {
+            text: 'Singing',
+            count: 0,
+        },
+    });
+
+    return <Habits habits={habits} />;
+};
 
 export default App;
