@@ -1,25 +1,32 @@
 import React, { useState } from 'react';
 import './app.css';
+import HabitAddForm from './components/habitAddform/habitAddForm';
 import Habits from './components/habits';
 
 const App = (props) => {
     const [habits, setHabits] = useState({
-        1: {
-            id: 1,
-            text: 'Reading',
-            count: 0,
-        },
-        2: {
-            id: 2,
-            text: 'Running',
-            count: 0,
-        },
-        3: {
-            id: 3,
-            text: 'Singing',
-            count: 0,
-        },
+        // 1: {
+        //     id: 1,
+        //     text: 'Reading',
+        //     count: 0,
+        // },
+        // 2: {
+        //     id: 2,
+        //     text: 'Running',
+        //     count: 0,
+        // },
+        // 3: {
+        //     id: 3,
+        //     text: 'Singing',
+        //     count: 0,
+        // },
     });
+
+    const handleSubmit = (habit) => {
+        const updated = { ...habits };
+        updated[habit.id] = habit;
+        setHabits(updated);
+    };
 
     const handleIncrement = (id) => {
         const updated = { ...habits };
@@ -41,12 +48,15 @@ const App = (props) => {
     };
 
     return (
-        <Habits
-            habits={habits}
-            onIncrement={handleIncrement}
-            onDecrement={handleDecrement}
-            onDelete={handleDelete}
-        />
+        <>
+            <HabitAddForm onSubmit={handleSubmit} />
+            <Habits
+                habits={habits}
+                onIncrement={handleIncrement}
+                onDecrement={handleDecrement}
+                onDelete={handleDelete}
+            />
+        </>
     );
 };
 
