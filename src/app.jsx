@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './app.css';
 import HabitAddForm from './components/habitAddform/habitAddForm';
-import Habits from './components/habits';
+import Habits from './components/habits/habits';
 import Navbar from './components/navbar/navbar';
 
 const App = () => {
@@ -58,6 +58,24 @@ const App = () => {
         setHabits(updated);
     };
 
+    const handleResetClick = () => {
+        const updated = { ...habits };
+        Object.keys(updated).forEach((key) => {
+            updated[key].count = 0;
+        });
+        setHabits(updated);
+        setTotalCount(0);
+    };
+
+    const handleDelAllClick = () => {
+        const updated = { ...habits };
+        Object.keys(updated).forEach((key) => {
+            delete updated[key];
+        });
+        setHabits(updated);
+        setTotalCount(0);
+    };
+
     return (
         <>
             <Navbar totalCount={totalCount} />
@@ -67,6 +85,8 @@ const App = () => {
                 onIncrement={handleIncrement}
                 onDecrement={handleDecrement}
                 onDelete={handleDelete}
+                onResetClick={handleResetClick}
+                onDelAllClick={handleDelAllClick}
             />
         </>
     );
