@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './app.css';
 import HabitAddForm from './components/habitAddform/habitAddForm';
 import Habits from './components/habits';
+import Navbar from './components/navbar/navbar';
 
 const App = (props) => {
     const [habits, setHabits] = useState({
@@ -49,6 +50,7 @@ const App = (props) => {
 
     return (
         <>
+            <Navbar />
             <HabitAddForm onSubmit={handleSubmit} />
             <Habits
                 habits={habits}
